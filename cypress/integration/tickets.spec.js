@@ -1,4 +1,4 @@
-
+//const { first } = require("lodash");
 
 describe("Tickets", function(){
 
@@ -7,6 +7,17 @@ describe("Tickets", function(){
     });
 
     it("Has 'TICKETBOX' at header", function(){
-        cy.get('#app header h1').should('have.text', 'TICKETBOX')
+        cy.get('#app header h1').should('have.text', 'TICKETBOX');
+    })
+
+    it.only("Fills all the text input fields", function(){
+        const firstName = "Samuel";
+        const lastName = "Andrade";
+
+        cy.get("#first-name").type(firstName);
+        cy.get("#last-name").type(lastName);
+        cy.get("#email").type("samuel.andrade@live.com");
+        cy.get("#requests").type("QA Analyst")
+        cy.get("#signature").type(`${firstName} ${lastName}`);
     })
 })
